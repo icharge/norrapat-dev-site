@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import {
   Code2,
   Briefcase,
@@ -73,25 +73,24 @@ const styles = {
 };
 
 const PortfolioPage = () => {
+  const darkModeToggleEnabled = false;
+
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    // System dark mode detection
-    /* const darkModePreference = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-    setIsDark(darkModePreference.matches); */
+    if (darkModeToggleEnabled) {
+      const darkModePreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+      setIsDark(darkModePreference.matches);
+    }
+  }, [darkModeToggleEnabled]);
 
-    // Scroll handler
-    const updateScroll = () => setIsScrolled(scrollY.get() > 110);
-    scrollY.onChange(updateScroll);
-
-    return () => {
-      scrollY.clearListeners();
-    };
-  }, [scrollY]);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 110);
+  });
 
   const skills = {
     backend: ["Java", "Spring Boot", "NodeJS", "Go lang"],
@@ -209,18 +208,20 @@ const PortfolioPage = () => {
             Norrapat N.
           </AnimatedH1>
           <div className="flex items-center gap-4">
-            {/* <button
-              onClick={() => setIsDark(!isDark)}
-              className={`p-2 rounded-full ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
-            >
-              {isDark ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button> */}
+            {darkModeToggleEnabled && (
+              <button
+                onClick={() => setIsDark(!isDark)}
+                className={`p-2 rounded-full ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
+                {isDark ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </button>
+            )}
             <a
               title="LinkedIn"
               href="https://www.linkedin.com/in/norrapatni/"
