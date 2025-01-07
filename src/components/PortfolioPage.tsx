@@ -16,13 +16,11 @@ import {
   Calendar,
 } from "lucide-react";
 import {
-  SiJava,
   SiSpring,
   SiReact,
   SiAngular,
   SiDocker,
   SiKubernetes,
-  SiAws,
   SiMongodb,
   SiPostgresql,
 } from "react-icons/si";
