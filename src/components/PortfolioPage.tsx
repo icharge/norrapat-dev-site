@@ -14,6 +14,7 @@ import {
   Github,
   Mail,
   Calendar,
+  FileDown,
 } from "lucide-react";
 import {
   SiSpring,
@@ -66,8 +67,8 @@ const styles = {
   },
   header: {
     base: "fixed w-full z-50 transition-all duration-300",
-    scrolled: "py-2 text-xl",
-    notScrolled: "py-4 text-2xl",
+    scrolled: "py-2",
+    notScrolled: "py-4",
     blur: "backdrop-blur-md",
   },
 };
@@ -201,13 +202,23 @@ const PortfolioPage = () => {
           )}
         >
           <AnimatedH1
-            className={`font-bold transition-all ${
-              isScrolled ? "text-xl" : "text-2xl"
+            className={`font-bold transition-all duration-300 text-2xl origin-left ${
+              isScrolled ? "scale-75" : "scale-100"
             } ${isDark ? styles.text.primary.dark : styles.text.primary.light}`}
           >
             Norrapat N.
           </AnimatedH1>
           <div className="flex items-center gap-4">
+            <a
+              title="Resume"
+              href="/resume/resume-norrapat-n-2024.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileDown
+                className={`w-5 h-5 ${isDark ? "text-white" : "text-gray-900"}`}
+              />
+            </a>
             {darkModeToggleEnabled && (
               <button
                 onClick={() => setIsDark(!isDark)}
