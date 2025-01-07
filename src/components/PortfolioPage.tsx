@@ -256,14 +256,14 @@ const PortfolioPage = () => {
         >
           <div className="container mx-auto px-4">
             {
-              <motion.h1
+              <AnimatedH1
                 className="text-4xl font-bold mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
                 Norrapat Nimmanee
-              </motion.h1>
+              </AnimatedH1>
             }
             <motion.h2
               className="text-2xl mb-6"
