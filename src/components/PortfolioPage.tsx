@@ -209,16 +209,6 @@ const PortfolioPage = () => {
             Norrapat N.
           </AnimatedH1>
           <div className="flex items-center gap-4">
-            <a
-              title="Resume"
-              href="/resume/resume-norrapat-n-2024.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FileDown
-                className={`w-5 h-5 ${isDark ? "text-white" : "text-gray-900"}`}
-              />
-            </a>
             {darkModeToggleEnabled && (
               <button
                 onClick={() => setIsDark(!isDark)}
