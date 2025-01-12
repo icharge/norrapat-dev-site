@@ -41,23 +41,23 @@ const styles = {
   },
   text: {
     primary: {
-      light: "text-navy-900",
+      light: "text-primary-900",
       dark: "text-white",
     },
     secondary: {
-      light: "text-navy-700",
-      dark: "text-navy-100",
+      light: "text-primary-700",
+      dark: "text-primary-100",
     },
     tertiary: {
-      light: "text-navy-500",
-      dark: "text-navy-200",
+      light: "text-primary-500",
+      dark: "text-primary-200",
     },
   },
   timeline: {
-    line: "absolute left-8 -translate-x-1/2 h-full w-0.5 bg-navy-600",
+    line: "absolute left-8 top-5 -translate-x-1/2 h-full w-0.5 bg-primary-600",
     icon: {
       wrapper:
-        "absolute left-8 -translate-x-1/2 w-8 h-8 bg-navy-600 rounded-full flex items-center justify-center",
+        "absolute left-8 top-5 -translate-x-1/2 w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center",
       inner: "w-4 h-4 text-white",
     },
     card: {
@@ -72,7 +72,7 @@ const styles = {
     blur: "backdrop-blur-md",
   },
   button: {
-    primary: "bg-navy-500 hover:bg-navy-600 text-white",
+    primary: "bg-primary-500 hover:bg-primary-600 text-white",
     secondary: "bg-secondary-500 hover:bg-secondary-600 text-white",
   },
 };
@@ -256,7 +256,7 @@ const PortfolioPage = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`bg-gradient-to-r from-navy-600 to-navy-800 text-white py-20`}
+          className={`bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20`}
         >
           <div className="container mx-auto px-4">
             {
@@ -305,16 +305,16 @@ const PortfolioPage = () => {
             >
               <div className="flex items-center mb-4">
                 {category === "backend" && (
-                  <Code2 className="w-6 h-6 text-navy-600 mr-2" />
+                  <Code2 className="w-6 h-6 text-primary-600 mr-2" />
                 )}
                 {category === "frontend" && (
-                  <Briefcase className="w-6 h-6 text-navy-600 mr-2" />
+                  <Briefcase className="w-6 h-6 text-primary-600 mr-2" />
                 )}
                 {category === "databases" && (
-                  <Database className="w-6 h-6 text-navy-600 mr-2" />
+                  <Database className="w-6 h-6 text-primary-600 mr-2" />
                 )}
                 {category === "cloud" && (
-                  <Cloud className="w-6 h-6 text-navy-600 mr-2" />
+                  <Cloud className="w-6 h-6 text-primary-600 mr-2" />
                 )}
                 <h3 className="text-xl font-semibold capitalize">{category}</h3>
               </div>
@@ -327,7 +327,7 @@ const PortfolioPage = () => {
                     transition={{ delay: index * 0.1 + i * 0.1 }}
                     className="flex items-center"
                   >
-                    <ChevronRight className="w-4 h-4 text-navy-600 mr-2" />
+                    <ChevronRight className="w-4 h-4 text-primary-600 mr-2" />
                     {skill}
                   </motion.li>
                 ))}
@@ -349,7 +349,7 @@ const PortfolioPage = () => {
           <div className={styles.timeline.line} />
 
           {experience.map((exp) => (
-            <ScrollAnimationWrapper key={exp.company}>
+            <ScrollAnimationWrapper key={exp.company} className="relative">
               <div className={styles.timeline.card.wrapper}>
                 {/* Timeline icon */}
                 <div className={styles.timeline.icon.wrapper}>
@@ -363,7 +363,7 @@ const PortfolioPage = () => {
                   ${isDark ? styles.card.dark : styles.card.light}
                 `}
                 >
-                  <h3 className="text-xl font-bold text-navy-600">
+                  <h3 className="text-xl font-bold text-primary-600">
                     {exp.company}
                   </h3>
                   <div
@@ -387,7 +387,7 @@ const PortfolioPage = () => {
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-navy-600 mr-2">•</span>
+                        <span className="text-primary-600 mr-2">•</span>
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -428,7 +428,7 @@ const PortfolioPage = () => {
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-sm rounded-full bg-navy-100 text-navy-800 dark:bg-navy-900 dark:text-navy-100"
+                    className="px-3 py-1 text-sm rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-100"
                   >
                     {tech}
                   </span>
@@ -456,7 +456,7 @@ const PortfolioPage = () => {
               }`}
             >
               <div className="flex items-center mb-2">
-                <GiGraduateCap className="w-6 h-6 text-navy-600 mr-2" />
+                <GiGraduateCap className="w-6 h-6 text-primary-600 mr-2" />
                 <h3 className="text-xl font-bold">{edu.school}</h3>
               </div>
               <div className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>

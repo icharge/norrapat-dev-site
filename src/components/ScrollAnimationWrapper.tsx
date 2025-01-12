@@ -11,16 +11,21 @@ const scrollVariants = {
   },
 };
 
+type ScrollAnimationWrapperProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
 const ScrollAnimationWrapper = ({
   children,
-}: {
-  children: React.ReactNode;
-}) => {
+  className,
+}: ScrollAnimationWrapperProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
+      className={className}
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

@@ -1,7 +1,5 @@
-import { nav } from "framer-motion/client";
 import type { Config } from "tailwindcss";
 
-// Oxford Navy based color palette
 const oxfordColors = {
   50: "#e6eaf2", // Light background
   100: "#b3bfd7",
@@ -29,6 +27,20 @@ const navyColors = {
   950: "#1a0076",
 };
 
+const persianBlue = {
+  "50": "#eaf4ff",
+  "100": "#d9eaff",
+  "200": "#bbd8ff",
+  "300": "#92bdff",
+  "400": "#6794ff",
+  "500": "#446cff",
+  "600": "#2341ff",
+  "700": "#1831ea",
+  "800": "#172dbd",
+  "900": "#1c2f93",
+  "950": "#111a55",
+};
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -45,7 +57,8 @@ export default {
       colors: {
         oxford: oxfordColors,
         navy: navyColors,
-        primary: navyColors,
+        persianBlue,
+        primary: persianBlue,
         // Complementary colors
         secondary: {
           50: "#fff7ed", // Warm accent
