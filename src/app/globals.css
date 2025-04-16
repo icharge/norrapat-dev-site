@@ -1,6 +1,96 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-oxford-50: #e6eaf2;
+  --color-oxford-100: #b3bfd7;
+  --color-oxford-200: #8095bc;
+  --color-oxford-300: #4d6aa1;
+  --color-oxford-400: #264b8f;
+  --color-oxford-500: #001a46;
+  --color-oxford-600: #001741;
+  --color-oxford-700: #00133b;
+  --color-oxford-800: #000f35;
+  --color-oxford-900: #000829;
+
+  --color-navy-50: #f1f1ff;
+  --color-navy-100: #e8e5ff;
+  --color-navy-200: #d2ceff;
+  --color-navy-300: #b0a7ff;
+  --color-navy-400: #8b76ff;
+  --color-navy-500: #673fff;
+  --color-navy-600: #5418ff;
+  --color-navy-700: #4607fa;
+  --color-navy-800: #3a05d2;
+  --color-navy-900: #3106ac;
+  --color-navy-950: #1a0076;
+
+  --color-persian-blue-50: #eaf4ff;
+  --color-persian-blue-100: #d9eaff;
+  --color-persian-blue-200: #bbd8ff;
+  --color-persian-blue-300: #92bdff;
+  --color-persian-blue-400: #6794ff;
+  --color-persian-blue-500: #446cff;
+  --color-persian-blue-600: #2341ff;
+  --color-persian-blue-700: #1831ea;
+  --color-persian-blue-800: #172dbd;
+  --color-persian-blue-900: #1c2f93;
+  --color-persian-blue-950: #111a55;
+
+  --color-primary-50: #eaf4ff;
+  --color-primary-100: #d9eaff;
+  --color-primary-200: #bbd8ff;
+  --color-primary-300: #92bdff;
+  --color-primary-400: #6794ff;
+  --color-primary-500: #446cff;
+  --color-primary-600: #2341ff;
+  --color-primary-700: #1831ea;
+  --color-primary-800: #172dbd;
+  --color-primary-900: #1c2f93;
+  --color-primary-950: #111a55;
+
+  --color-secondary-50: #fff7ed;
+  --color-secondary-100: #ffedd5;
+  --color-secondary-200: #fed7aa;
+  --color-secondary-300: #fdb97c;
+  --color-secondary-400: #fb923c;
+  --color-secondary-500: #f97316;
+  --color-secondary-600: #ea580c;
+  --color-secondary-700: #c2410c;
+  --color-secondary-800: #9a3412;
+  --color-secondary-900: #7c2d12;
+
+  --background-image-oxford-gradient: linear-gradient(
+    to right,
+    #001a46,
+    #264b8f
+  );
+  --background-image-oxford-dark: linear-gradient(to right, #000829, #001a46);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   --background: #ffffff;
